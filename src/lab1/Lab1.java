@@ -1,8 +1,8 @@
+package lab1;
 import java.util.Scanner;
 
 public class Lab1 {
-    static void execute() {
-
+    public static void execute() {
         Scanner scanner = new Scanner(System.in);
         while (true){
             int comissionStep = 7;
@@ -26,7 +26,7 @@ public class Lab1 {
 }
 
 
-//Задание 3
+//Вариант 3
 //Банк берет комиссию за перевод по принципу - с каждой сотни рублей изымается комиссия - 7 рублей.
 //За неполную сотню также изымается 7 рублей. К примеру, за перевод одного рубля придется выложить 1 + 7 = 8 рублей.
 //За перевод 101 рубля придется выложить уже 100 + 7 + 1 + 7 = 115 рублей
