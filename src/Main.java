@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 //        Lab1.execute();
 //        Lab2.execute();
-//        Lab3.execute();
+        Lab3.execute();
 //        Lab4.execute();
 //        Lab5.execute();
 //        Lab6.execute();
