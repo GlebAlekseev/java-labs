@@ -1,0 +1,45 @@
+The link field is a special device used by the IMPs to limit certain
+kinds of congestion.  They function as follows.  Between every pair of
+HOSTs there are 32 logical full-duplex connections over which messages
+may be passed in either direction.  The IMPs place the restriction on
+these links that no HOST can send two successive messages over the
+same link before the IMP at the destination has sent back a special
+message called an RFNM (Request for Next Message).  This arrangement
+limits the congestion one HOST can cause another if the sending HOST
+is attempting to send too much over one link.  We note, however, that
+since the IMP at the destination does not have enough capacity to
+handle all 32 links simultaneously, the links serve their purpose only
+if the overload is coming from one or two links.  It is necessary for
+the HOSTs to cooperate in this respect.
+
+The links have the following primitive characteristics.  They are
+always functioning and there are always 32 of them.
+
+By "always functioning," we mean that the IMPs are always prepared to
+transmit another message over them.  No notion of beginning or ending
+a conversation is contained in the IMP software.  It is thus not
+possible to query an IMP about the state of a link (although it might
+be possible to query an IMP about the recent history of a link --
+quite a different matter!).
+
+The other primitive characteristic of the links is that there are
+always 32 of them, whether they are in use or not.  This means that
+each IMP must maintain 18 tables, each with 32 entries, regardless of
+the actual traffic.
+
+The objections to the link structure notwithstanding, the links are
+easily programmed within the IMPs and are probably a better
+alternative to more complex arrangements just because of their
+simplicity.
+
+IMP Transmission and Error Checking
+
+After receiving a message from a HOST, an IMP partitions the message
+into one or more packets.  Packets are not more than 1010 bits long
+and are the unit of data transmission from IMP to IMP.  A 24 bit
+cyclic checksum is computed by the transmission hardware and is
+appended to an outgoing packet.  The checksum is recomputed by the
+receiving hardware and is checked against the transmitted checksum.
+Packets are reassembled into messages at the destination IMP.
+
+Open Questions on the IMP Software
