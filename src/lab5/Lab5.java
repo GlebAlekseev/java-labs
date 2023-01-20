@@ -1,11 +1,33 @@
 package lab5;
 
+import java.util.ArrayList;
+
 public class Lab5 {
-    public static void execute(){
+    public static void execute() {
+        SingleLinkedList<Integer> list = new SingleLinkedList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(7);
+        list.add(5);
+        list.remove(0);
+        list.remove(0);
+        list.remove((Integer) 5);
+        System.out.println("Длина списка: " + list.size());
+        list.forEach((integer -> {
+            System.out.print(integer + ", ");
+        }));
+        System.out.println();
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        list.addAll(arrayList);
+        SingleLinkedList<Integer> result = SingleLinkedList.getEvenIndexList(list);
+        System.out.println("Список значений под четными индексами.");
+        result.forEach((item) -> {
+            System.out.print(item + ", ");
+        });
 
     }
 }
-
 
 // ПРАКТИЧЕСКОЕ ЗАДАНИЕ
 //    1. разработать Generic-класс, позволяющий работать с группами объектов по варианту (добавлять, удалять и т.д.);
