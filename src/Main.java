@@ -10,7 +10,7 @@ public class Main {
 //        Lab2.execute();
 //        Lab3.execute();
 //        Lab4.execute();
-        Lab5.execute();
-//        Lab6.execute();
+//        Lab5.execute();
+        Lab6.execute();
     }
 }
